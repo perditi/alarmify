@@ -7,6 +7,7 @@ const AlarmClock = () => {
 	const [showTimePicker, setShowTimePicker] = useState(false);
 
 	const showTimePickerModal = () => {
+
 		setShowTimePicker(true);
 	};
 
@@ -21,23 +22,23 @@ const AlarmClock = () => {
 		}
 	};
 
-	useEffect(() => {
-		const checkAlarm = setInterval(() => {
-			const currentTime = new Date();
-			if (
-                currentTime.getDay() === alarmTime.getDay() &&
-				currentTime.getHours() === alarmTime.getHours() &&
-				currentTime.getMinutes() === alarmTime.getMinutes()
-			) {
-				// Matched the set alarm time, show an alert
-				Alert.alert("Alarm", "It is time!");
-				// Stop checking once the alert is shown
-				clearInterval(checkAlarm); 
-			}
-		}, 1000); // Check every second
-		// Cleanup on component unmount
-		return () => clearInterval(checkAlarm); 
-	}, [alarmTime]);
+// 	useEffect(() => {
+// 		const checkAlarm = setInterval(() => {
+// 			const currentTime = new Date();
+// 			if (
+//                 currentTime.getDay() === alarmTime.getDay() &&
+// 				currentTime.getHours() === alarmTime.getHours() &&
+// 				currentTime.getMinutes() === alarmTime.getMinutes()
+// 			) {
+// 				// Matched the set alarm time, show an alert
+// 				Alert.alert("Alarm", "It is time!");
+// 				// Stop checking once the alert is shown
+// 				clearInterval(checkAlarm);
+// 			}
+// 		}, 1000); // Check every second
+// 		// Cleanup on component unmount
+// 		return () => clearInterval(checkAlarm);
+// 	}, [alarmTime]);
 
 	return (
 		<View style={styles.container}>
@@ -65,6 +66,7 @@ const AlarmClock = () => {
 			)}
 
 			<Button
+			    id="setAlarmButton"
 				title="Set Alarm"
 				onPress={showTimePickerModal}
 				color="#3498db"
