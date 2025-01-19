@@ -38,10 +38,10 @@ const AlarmClock = () => {
       const currentTime = new Date();
       const currentDayIndex = currentTime.getDay();
       if (
-        selectedDays.includes(currentDayIndex) &&
         currentTime.getHours() === alarmTime.getHours() &&
         currentTime.getMinutes() === alarmTime.getMinutes() &&
-        isAlarmOn
+        isAlarmOn &&
+        (selectedDays.includes(currentDayIndex) || selectedDays.length === 0)
       ) {
         Alert.alert("Alarm", "It is time!");
         clearInterval(checkAlarm);
@@ -59,7 +59,7 @@ const AlarmClock = () => {
       </View>
 
       <View style={styles.clockContainer}>
-        <Text style={styles.clockText}>
+        <Text style={styles.clockText} onPress={showTimePickerModal}>
           {alarmTime.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
         </Text>
       </View>
@@ -98,6 +98,7 @@ const AlarmClock = () => {
       <Switch onValueChange={alarmOnOff} 
           thumbColor={isAlarmOn ? '#f5dd4b' : '#f4f3f4'}
           value = {isAlarmOn} />
+
     </View>
   );
 };
