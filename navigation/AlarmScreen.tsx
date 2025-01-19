@@ -45,6 +45,9 @@ const AlarmClock = () => {
       ) {
         Alert.alert("Alarm", "It is time!");
         clearInterval(checkAlarm);
+        if (selectedDays.length === 0) {
+            alarmOnOff();
+        }
       }
     }, 1000);
 
