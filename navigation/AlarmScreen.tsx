@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, Switch, Button, StyleSheet, Platform, Alert, TouchableOpacity } from "react-native";
-import DateTimePicker from "@react-native-community/datetimepicker";
+import { View, Text, Switch, Button, StyleSheet, Alert, TouchableOpacity } from "react-native";
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 const daysOfWeek = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
 
@@ -8,7 +8,7 @@ const AlarmClock = () => {
   const [alarmTime, setAlarmTime] = useState(new Date());
   const [showTimePicker, setShowTimePicker] = useState(false);
   const [selectedDays, setSelectedDays] = useState<number[]>([]); // Holds the days of the week for the alarm
-  const [isAlarmOn, setAlarmSwitch] = useState(true);
+  const [isAlarmOn, setAlarmSwitch] = useState(false);
   
   const alarmOnOff = () =>  setAlarmSwitch(previousState => !previousState);
 
@@ -43,7 +43,7 @@ const AlarmClock = () => {
         isAlarmOn &&
         (selectedDays.includes(currentDayIndex) || selectedDays.length === 0)
       ) {
-        Alert.alert("Alarm", "It is time!");
+        Alert.alert('Alarm', 'It is time!');
         clearInterval(checkAlarm);
         if (selectedDays.length === 0) {
             alarmOnOff();
