@@ -7,7 +7,11 @@ import StopwatchScreen from './StopwatchScreen';
 const Tab = createBottomTabNavigator();
 const NavigationBar = () => {
     return (
-        <Tab.Navigator>
+        <Tab.Navigator
+            screenOptions={{
+                headerShown: false,
+                tabBarStyle: {backgroundColor: 'lightblue'},
+                }}>
             <Tab.Screen name="Alarm" component={AlarmScreen}/>
             <Tab.Screen name="Timer" component={TimerScreen}/>
             <Tab.Screen name="Stopwatch" component={StopwatchScreen}/>
