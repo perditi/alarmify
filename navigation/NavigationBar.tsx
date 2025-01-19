@@ -10,8 +10,15 @@ const NavigationBar = () => {
         <Tab.Navigator
             screenOptions={{
                 headerShown: false,
-                tabBarStyle: {backgroundColor: 'lightblue'},
-                }}>
+                tabBarStyle: {
+                    backgroundColor: 'transparent',
+                    height: 100,},
+                tabBarActiveBackgroundColor: '#252639',
+            tabBarLabelStyle: {
+                fontSize:
+            }
+            }}>
+
             <Tab.Screen name="Alarm" component={AlarmScreen}/>
             <Tab.Screen name="Timer" component={TimerScreen}/>
             <Tab.Screen name="Stopwatch" component={StopwatchScreen}/>
