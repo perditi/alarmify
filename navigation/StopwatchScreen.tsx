@@ -28,25 +28,37 @@ const StopwatchScreen = () => {
         setTime(0);
         setRunning(false);
     };
+    // lap stopwatch
+    const lapStopwatch = () => {
+
+    };
 
     return (
         <View style={styles.container}>
             <Text style={styles.timeText}>{(time/100).toFixed(2)}s</Text>
             <View style={styles.buttonContainer}>
                 {running ? (
-                    <TouchableOpacity
-                        style={[styles.button, styles.pauseButton]}
-                        onPress={pauseStopwatch}
-                    >
-                        <Text style={styles.buttonText}>Pause</Text>
-                    </TouchableOpacity>
+                    <>
+                        <TouchableOpacity
+                            style={[styles.button, styles.pauseButton]}
+                            onPress={pauseStopwatch}
+                        >
+                            <Text style={styles.buttonText}>Pause</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            style={[styles.button, styles.lapButton]}
+                            onPress={lapStopwatch}
+                        >
+                            <Text style={styles.buttonText}>Lap</Text>
+                        </TouchableOpacity>
+                    </>
                 ) : (
                     <>
                         <TouchableOpacity
                             style={[styles.button, styles.startButton]}
                             onPress={startStopwatch}
                         >
-                            <Text style={styles.buttonText}>Start</Text>
+                            <Text style={styles.buttonText}>{time === 0 ? 'Start' : 'Resume'}</Text>
                         </TouchableOpacity>
                         <TouchableOpacity
                             style={[styles.button, styles.resetButton]}
@@ -58,16 +70,6 @@ const StopwatchScreen = () => {
                         </TouchableOpacity>
                     </>
                 )}
-                {/* {!running && (
-                    <TouchableOpacity
-                        style={[styles.button, styles.resumeButton]}
-                        onPress={startStopwatch}
-                    >
-                        <Text style={styles.buttonText}>
-                            Resume
-                        </Text>
-                    </TouchableOpacity>
-                )} */}
             </View>
         </View>
     );
@@ -107,13 +109,14 @@ const styles = StyleSheet.create({
     },
     resetButton: {
         backgroundColor: '#e74c3c',
-        marginRight: 10,
     },
     pauseButton: {
         backgroundColor: '#f39c12',
+        marginRight: 10,
     },
-    resumeButton: {
-        backgroundColor: '#3498db',
+    lapButton: {
+        backgroundColor: '#a71ce7',
+        marginRight: 10,
     },
     buttonText: {
         color: 'white',
