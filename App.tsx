@@ -14,6 +14,7 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+
 import {
   Colors,
   DebugInstructions,
@@ -36,59 +37,49 @@ type SectionProps = PropsWithChildren<{
 
 
 function Section({children, title}: SectionProps): React.JSX.Element {
-    const isDarkMode = useColorScheme() === 'dark';
     return (
+      <LinearGradient
+        colors={['#31334B','#2E2F40','#222339']}
+        start={{x: 0, y: 0 }}
+        end={{ x: 1, y: 1}}
+        style={styles.gradientBackground}
+        >
       <View style={styles.sectionContainer}>
-        <Text
-          style={[
-            styles.sectionTitle,
-            {
-              color: isDarkMode ? Colors.white : Colors.black,
-            },
-          ]}>
+        <Text>
           {title}
         </Text>
-        <Text
-          style={[
-            styles.sectionDescription,
-            {
-              color: isDarkMode ? Colors.light : Colors.dark,
-            },
-          ]}>
+        <Text>
           {children}
         </Text>
       </View>
+      </LinearGradient>
+
     );
   }
   
   function App(): React.JSX.Element {
-    const isDarkMode = useColorScheme() === 'dark';
-
-  
-    const backgroundStyle = {
-      backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-    };
-  
     return (
         <LinearGradient
         colors={['#31334B','#2E2F40','#222339']}
         start={{x: 0, y: 0 }}
         end={{ x: 1, y: 1}}
-        style={styles.sectionContainer}
+        style={styles.gradientBackground}
         >
          <NavigationContainer>
              <NavigationBar/>
          </NavigationContainer>
         </LinearGradient>
     );
-
   }
   
   const styles = StyleSheet.create({
-    sectionContainer: {
+    gradientBackground: {
       flex: 1,
+    },
+    sectionContainer: {
       marginTop: 32,
       paddingHorizontal: 24,
+      backgroundColor: 'transparent',
     },
     sectionTitle: {
       fontFamily: 'Inter_28pt-SemiBold',
