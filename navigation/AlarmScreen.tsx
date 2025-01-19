@@ -59,7 +59,7 @@ const AlarmClock = () => {
 
   return (
 	<LinearGradient
-			colors={['#31334B','#2E2F40','#222339']}
+			colors={['#222339','#2E2F40','#31334B']}
 			start={{x: 0, y: 0 }}
 			end={{ x: 1, y: 1}}
 			style={styles.container}>
