@@ -21,6 +21,7 @@ const NavigationBar = () => {
                 },
                 tabBarActiveBackgroundColor: '#252639',
                 }}>
+
             <Tab.Screen name="Alarm" component={AlarmScreen}/>
             <Tab.Screen name="Timer" component={TimerScreen}/>
             <Tab.Screen name="Stopwatch" component={StopwatchScreen}/>

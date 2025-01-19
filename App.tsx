@@ -13,6 +13,7 @@ import {
   Text,
   View,
 } from 'react-native';
+
 import {
   Colors,
   DebugInstructions,
@@ -60,18 +61,17 @@ type SectionProps = PropsWithChildren<{
         colors={['#31334B','#2E2F40','#222339']}
         start={{x: 0, y: 0 }}
         end={{ x: 1, y: 1}}
-        style={styles.sectionContainer}
+        style={styles.gradientBackground}
         >
          <NavigationContainer>
              <NavigationBar/>
          </NavigationContainer>
         </LinearGradient>
     );
-
   }
   
   const styles = StyleSheet.create({
-    sectionContainer: {
+    gradientBackground: {
       flex: 1,
     },
     sectionTitle: {

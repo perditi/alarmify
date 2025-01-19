@@ -7,6 +7,7 @@
 <path d="M69 246L179 246" stroke="url(#paint1_linear_71_276)" stroke-width="35" stroke-linecap="round"/>
 <defs>
 <filter id="filter0_dd_71_276" x="0.880859" y="0.5" width="245.748" height="311" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset dy="10"/>
