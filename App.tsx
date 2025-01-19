@@ -1,6 +1,7 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import NavigationBar from './navigation/NavigationBar';
+import LinearGradient from 'react-native-linear-gradient';
 
 import type {PropsWithChildren} from 'react';
 
@@ -69,22 +70,29 @@ function Section({children, title}: SectionProps): React.JSX.Element {
     };
   
     return (
-//       <SafeAreaView style={backgroundStyle}>
+        <LinearGradient
+        colors={['#31334B','#2E2F40','#222339']}
+        start={{x: 0, y: 0 }}
+        end={{ x: 1, y: 1}}
+        style={styles.sectionContainer}
+        >
          <NavigationContainer>
              <NavigationBar/>
          </NavigationContainer>
-//       </SafeAreaView>
+        </LinearGradient>
     );
+
   }
   
   const styles = StyleSheet.create({
     sectionContainer: {
+      flex: 1,
       marginTop: 32,
       paddingHorizontal: 24,
     },
     sectionTitle: {
+      fontFamily: 'Inter_28pt-SemiBold',
       fontSize: 24,
-      fontWeight: '600',
     },
     sectionDescription: {
       marginTop: 8,
