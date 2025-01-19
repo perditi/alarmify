@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, Button, StyleSheet, Platform, Alert, TouchableOpacity } from "react-native";
+import { View, Text, Switch, Button, StyleSheet, Platform, Alert, TouchableOpacity } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 
 const daysOfWeek = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
@@ -8,11 +8,9 @@ const AlarmClock = () => {
   const [alarmTime, setAlarmTime] = useState(new Date());
   const [showTimePicker, setShowTimePicker] = useState(false);
   const [selectedDays, setSelectedDays] = useState<number[]>([]); // Holds the days of the week for the alarm
-  var isAlarmOn:boolean;
-
-  const alarmOnOff = () => {
-    isAlarmOn = !isAlarmOn;
-  };
+  const [isAlarmOn, setAlarmSwitch] = useState(true);
+  
+  const alarmOnOff = () =>  setAlarmSwitch(previousState => !previousState);
 
   const showTimePickerModal = () => {
     setShowTimePicker(true);
@@ -42,7 +40,8 @@ const AlarmClock = () => {
       if (
         selectedDays.includes(currentDayIndex) &&
         currentTime.getHours() === alarmTime.getHours() &&
-        currentTime.getMinutes() === alarmTime.getMinutes()
+        currentTime.getMinutes() === alarmTime.getMinutes() &&
+        isAlarmOn
       ) {
         Alert.alert("Alarm", "It is time!");
         clearInterval(checkAlarm);
@@ -50,7 +49,8 @@ const AlarmClock = () => {
     }, 1000);
 
     return () => clearInterval(checkAlarm);
-  }, [alarmTime, selectedDays]);
+  }, [alarmTime, selectedDays, isAlarmOn]);
+
 
   return (
     <View style={styles.container}>
@@ -95,8 +95,9 @@ const AlarmClock = () => {
           onChange={handleTimeChange}
         />
       )}
-
-      <Button title="Set Alarm" onPress={showTimePickerModal} color="#3498db" />
+      <Switch onValueChange={alarmOnOff} 
+          thumbColor={isAlarmOn ? '#f5dd4b' : '#f4f3f4'}
+          value = {isAlarmOn} />
     </View>
   );
 };
