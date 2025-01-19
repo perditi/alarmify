@@ -14,9 +14,6 @@ const NavigationBar = () => {
                     backgroundColor: 'transparent',
                     height: 100,},
                 tabBarActiveBackgroundColor: '#252639',
-            tabBarLabelStyle: {
-                fontSize:
-            }
             }}>
 
             <Tab.Screen name="Alarm" component={AlarmScreen}/>

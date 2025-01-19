@@ -79,16 +79,14 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		justifyContent: "center",
-		alignItems: "center",
-		backgroundColor: "#ecf0f1", // Set your desired background color
+		alignItems: "center", // Set your desired background color
 	},
 	header: {
 		marginBottom: 20,
 	},
 	appName: {
 		fontSize: 28,
-		fontWeight: "bold",
-		color: "#2c3e50", // Set your desired text color
+		fontWeight: "bold", // Set your desired text color
 	},
 	clockContainer: {
 		flexDirection: "row",
@@ -97,8 +95,7 @@ const styles = StyleSheet.create({
 	},
 	clockText: {
 		fontSize: 50,
-		marginRight: 10,
-		color: "#2c3e50", // Set your desired text color
+		marginRight: 10, // Set your desired text color
 	},
 	footerText: {
 		marginTop: 20,
