@@ -11,7 +11,6 @@ import {
   StatusBar,
   StyleSheet,
   Text,
-  useColorScheme,
   View,
 } from 'react-native';
 import {
@@ -26,49 +25,36 @@ type SectionProps = PropsWithChildren<{
     title: string;
 }>;
 
-// function App(): React.JSX.Element{
-//     return(
-//         <NavigationContainer>
-//             <NavigationBar/>
-//         </NavigationContainer>
+
+//i believe this section isn't currently in use
+// function Section({children, title}: SectionProps): React.JSX.Element {
+//     const isDarkMode = useColorScheme() === 'dark';
+//     return (
+//       <View style={styles.sectionContainer}>
+//         <Text
+//           style={[
+//             styles.sectionTitle,
+//             {
+//               color: isDarkMode ? Colors.white : Colors.black,
+//             },
+//           ]}>
+//           {title}
+//         </Text>
+//         <Text
+//           style={[
+//             styles.sectionDescription,
+//             {
+//               color: isDarkMode ? Colors.light : Colors.dark,
+//             },
+//           ]}>
+//           {children}
+//         </Text>
+//       </View>
 //     );
-// }
-
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-    const isDarkMode = useColorScheme() === 'dark';
-    return (
-      <View style={styles.sectionContainer}>
-        <Text
-          style={[
-            styles.sectionTitle,
-            {
-              color: isDarkMode ? Colors.white : Colors.black,
-            },
-          ]}>
-          {title}
-        </Text>
-        <Text
-          style={[
-            styles.sectionDescription,
-            {
-              color: isDarkMode ? Colors.light : Colors.dark,
-            },
-          ]}>
-          {children}
-        </Text>
-      </View>
-    );
-  }
+//   }
   
   function App(): React.JSX.Element {
-    const isDarkMode = useColorScheme() === 'dark';
 
-  
-    const backgroundStyle = {
-      backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-    };
-  
     return (
         <LinearGradient
         colors={['#31334B','#2E2F40','#222339']}
@@ -87,8 +73,6 @@ function Section({children, title}: SectionProps): React.JSX.Element {
   const styles = StyleSheet.create({
     sectionContainer: {
       flex: 1,
-      marginTop: 32,
-      paddingHorizontal: 24,
     },
     sectionTitle: {
       fontFamily: 'Inter_28pt-SemiBold',

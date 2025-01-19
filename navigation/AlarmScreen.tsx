@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { View, Text, Switch, Button, StyleSheet, Alert, TouchableOpacity } from "react-native";
 import DateTimePicker from '@react-native-community/datetimepicker';
 
+import LinearGradient from 'react-native-linear-gradient';
+
 const daysOfWeek = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
 
 const AlarmClock = () => {
@@ -56,7 +58,12 @@ const AlarmClock = () => {
 
 
   return (
-    <View style={styles.container}>
+	<LinearGradient
+			colors={['#31334B','#2E2F40','#222339']}
+			start={{x: 0, y: 0 }}
+			end={{ x: 1, y: 1}}
+			style={styles.container}>
+
       <View style={styles.header}>
         <Text style={styles.appName}>Alarmify</Text>
       </View>
@@ -66,6 +73,7 @@ const AlarmClock = () => {
           {alarmTime.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
         </Text>
       </View>
+	  
 
       <View style={styles.daysContainer}>
         {daysOfWeek.map((day, index) => (
@@ -102,7 +110,7 @@ const AlarmClock = () => {
           thumbColor={isAlarmOn ? '#f5dd4b' : '#f4f3f4'}
           value = {isAlarmOn} />
 
-    </View>
+	</LinearGradient>
   );
 };
 
@@ -111,7 +119,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#ecf0f1",
   },
   header: {
     marginBottom: 20,
